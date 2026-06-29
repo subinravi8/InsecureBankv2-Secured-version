@@ -242,6 +242,14 @@ Fix 3: Hardcoded Cryptographic Key
     }
 
 
+     Acknowledgments
+Original project: https://github.com/dineshshetty/Android-InsecureBankv2.git by Dinesh Shetty
+
+Built for educational purposes to demonstrate real-world security engineering.
+
+
+
+
 
 
 
