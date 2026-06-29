@@ -12,9 +12,15 @@ This project demonstrates a **full-cycle security engineering approach**:
 - **Remediation** – Implement secure coding practices and cryptographic improvements.
 - **Verification** – Retest to confirm fixes are effective and functional.
 
-**Tools Used:** BurpSuite, ADB, Genymotion, Kali Linux, Android Studio, SQLite, Python (Flask)
-
+🧰 Prerequisites
+Kali Linux (or any Debian‑based Linux)
+Genymotion (Android emulator) installed on Windows (or Kali)
+BurpSuite installed on Windows (for intercepting traffic)
+ADB installed on Kali (sudo apt install adb -y)
+Python 3 and pip on Kali
 ---
+
+
 ## ⚠️ Vulnerabilities Found & Fixed
 
 | # | Vulnerability | Severity | Location | Fix Applied |
@@ -23,6 +29,84 @@ This project demonstrates a **full-cycle security engineering approach**:
 | 2 | **Broken Authorization (Password Hijacking)** | Critical | `/changepassword` | Enforced current password verification before allowing password change |
 | 3 | **Hardcoded Cryptographic Key** | High | `CryptoClass.java` | Replaced hardcoded key with **Android Keystore** (device-unique, hardware-backed) |
 | 4 | **SQL Injection** | ✅ NOT VULNERABLE | `/getaccounts` | Uses SQLAlchemy ORM (parameterized queries) – securely implemented by original developer |
+-----
+Clone the Original InsecureBankv2 Project
+Open a terminal on Kali and run:
+       
+        cd ~
+        git clone https://github.com/dineshshetty/Android-InsecureBankv2.git InsecureBankv2-Original
+        cd InsecureBankv2-Original
+        cd AndroLabServer
+        pip3 install flask flask-sqlalchemy sqlalchemy pycryptodome
+  #start server
+        
+        python3 app.py
+🚀 Running the Application
+
+### 1. Start the Android Emulator
+
+- Launch **Genymotion** and start your virtual device.
+- Open the **InsecureBankv2** application.
+  - If you're using the provided APK, it should already be installed.
+  - Otherwise, install the APK before proceeding.
+
+---
+
+### 2. Configure the Server Connection
+
+Inside the application:
+
+1. Open **Settings** (gear icon or menu).
+2. Set the server URL to:
+
+```text
+http://<KALI_IP>:8888
+```
+
+Replace `<KALI_IP>` with the IP address of your Kali Linux machine.
+
+To find your Kali IP:
+
+```bash
+ip a
+```
+Configure Burp Suite Proxy
+
+### On Windows
+
+1. Launch **Burp Suite**.
+2. Go to:
+
+```
+Proxy → Options → Proxy Listeners
+```
+
+3. Ensure a listener is running on:
+
+```text
+127.0.0.1:8082
+```
+
+---
+
+### Configure the Emulator Proxy
+
+In Genymotion:
+
+1. Open **Wi-Fi Settings**.
+2. Edit the connected network.
+3. Set the proxy to **Manual**.
+4. Configure:
+
+| Setting | Value |
+|---------|-------|
+| Proxy Host | Windows Host IP |
+| Proxy Port | 8082 |
+
+> Replace **Windows Host IP** with the IP address of your Windows machine that is reachable from the emulator.
+
+---
+
 
 
 ## 🛠️ Fix Details
