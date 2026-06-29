@@ -1,7 +1,9 @@
 # 🔐 Android-InsecureBankv2 – Security Hardening Project
 
 **A comprehensive security assessment and mitigation project for a vulnerable mobile banking application.**
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6a98199c-97f5-4d71-8612-315809f2489b" alt="SecureBankv2" width="350">
+</p>
 ---
 
 ## 📌Overview
