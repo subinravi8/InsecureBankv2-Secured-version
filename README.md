@@ -13,11 +13,12 @@ This project demonstrates a **full-cycle security engineering approach**:
 - **Verification** – Retest to confirm fixes are effective and functional.
 
 🧰 Prerequisites
-Kali Linux (or any Debian‑based Linux)
-Genymotion (Android emulator) installed on Windows (or Kali)
-BurpSuite installed on Windows (for intercepting traffic)
-ADB installed on Kali (sudo apt install adb -y)
-Python 3 and pip on Kali
+
+       Kali Linux (or any Debian‑based Linux)
+       Genymotion (Android emulator) installed on Windows (or Kali)
+       BurpSuite installed on Windows (for intercepting traffic)
+       ADB installed on Kali (sudo apt install adb -y)
+       Python 3 and pip on Kali
 ---
 
 
